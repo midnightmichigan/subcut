@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SubCut — Find the subscriptions draining your bank account</title>
+<meta name="description" content="Paste your bank statement. SubCut finds every recurring charge, totals the damage, and hands you cancel scripts — 100% in your browser, nothing uploaded.">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="logo">SubCut</div>
+    <div class="privacy-badge">🔒 100% private — runs in your browser</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="input-view">
+    <h1>Find every subscription <span class="red">draining</span> your bank account.</h1>
+    <p class="lede">Paste a few months of statement text. SubCut finds the recurring charges,
+      totals the damage, and hands you cancel scripts. Nothing is uploaded — it all runs on this page.</p>
+    <label class="field-label" for="statement">Your statement</label>
+    <textarea id="statement" rows="10" spellcheck="false"
+      placeholder="09/14/2026  NETFLIX.COM  $15.49&#10;09/05/2026  SPOTIFY USA  $10.99&#10;…paste lines from any bank…"></textarea>
+    <div class="input-actions">
+      <button id="demo-btn" class="btn secondary" type="button">Load demo statement</button>
+      <button id="analyze-btn" class="btn primary" type="button">Find my leaks</button>
+    </div>
+    <p id="input-error" class="error" hidden></p>
+    <p class="hint">Tip: paste at least 2 months of history for best results. Deposits, payroll and refunds are ignored automatically.</p>
+  </section>
+
+  <section id="results-view" hidden>
+    <h2 class="results-title">Your leak report</h2>
+    <div class="hero">
+      <div class="stat"><div class="stat-label">Leaking per month</div><div class="stat-value red" id="stat-monthly">$0.00</div></div>
+      <div class="stat"><div class="stat-label">Leaking per year</div><div class="stat-value red" id="stat-yearly">$0.00</div></div>
+      <div class="stat"><div class="stat-label">Subscriptions found</div><div class="stat-value" id="stat-count">0</div></div>
+      <div class="stat highlight"><div class="stat-label">Potential savings</div><div class="stat-value green" id="stat-savings">$0.00</div><div class="stat-sub">per year</div></div>
+    </div>
+    <p id="savings-line" class="savings-line"></p>
+    <p id="scan-meta" class="scan-meta"></p>
+    <div id="subs-grid" class="grid"></div>
+    <div class="results-actions">
+      <button id="scan-again" class="btn secondary" type="button">Scan again</button>
+    </div>
+    <p class="disclaimer">Estimates based on the text you pasted. Verify amounts before cancelling anything. SubCut gives no financial advice.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>SubCut — built for the Devpost "Build With AI: Basics" hackathon. Your statement never leaves this tab.</p>
+  </div>
+</footer>
+
+<div id="toast" hidden></div>
+
+<script src="js/merchants.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
